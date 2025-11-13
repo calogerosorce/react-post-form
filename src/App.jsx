@@ -8,7 +8,7 @@ function App() {
     author: '',
     title: '',
     body: '',
-    check: 'pubblico'
+    public: true
   }
   const [formData, setFormData] = useState(copyFormData)
   const [message, setMessage] = useState({
@@ -16,12 +16,10 @@ function App() {
     type: ''
   })
   function handleFormdData(e) {
-    const value =
-      e.target.name === e.target.value ?
-        e.target.checked : e.target.value;
+
     setFormData({
       ...formData,
-      [e.target.name]: value,
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -41,8 +39,6 @@ function App() {
     })
 
   }
-
-
 
   return (
     <>
@@ -68,7 +64,7 @@ function App() {
             <div className="row d-flex justify-content-center">
               <div className="col-2">
                 <div className="form-check">
-                  <input className="form-check-input" type="radio" name="check" value='pubblico' checked={formData.check === 'pubblico'} onChange={handleFormdData} />
+                  <input className="form-check-input" type="radio" name="public" value={true} checked={formData.name} onChange={handleFormdData} />
                   <label className="form-check-label">
                     Pubblico
                   </label>
@@ -76,7 +72,7 @@ function App() {
               </div>
               <div className="col-2">
                 <div className="form-check">
-                  <input className="form-check-input" type="radio" name="check" value='bozza' checked={formData.check === 'bozza'} onChange={handleFormdData} />
+                  <input className="form-check-input" type="radio" name='public' value={false} checked={formData.name} onChange={handleFormdData} />
                   <label className="form-check-label">
                     Bozza
                   </label>
