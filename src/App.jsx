@@ -12,28 +12,28 @@ function App() {
         <main>
           <form>
             <div className="mb-3">
-              <label for="exampleInputEmail1" className="form-label">Email address</label>
-              <input type="email" className="form-control" aria-describedby="emailHelp" />
+              <label className="form-label">Author</label>
+              <input type="text" className="form-control" />
             </div>
             <div className="mb-3">
-              <label for="exampleInputEmail1" className="form-label">Email address</label>
-              <input type="email" className="form-control" aria-describedby="emailHelp" />
+              <label className="form-label">Title</label>
+              <input type="text" className="form-control" />
             </div>
             <div className="mb-3">
-              <label for="exampleInputPassword1" className="form-label">Password</label>
-              <input type="password" className="form-control" />
+              <label className="form-label">Body</label>
+              <textarea className="form-control" rows="3"></textarea>
             </div>
             <div className="row d-flex justify-content-center">
               <div className="col-2">
                 <div className="mb-3 form-check">
                   <input type="checkbox" className="form-check-input" />
-                  <label className="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label className="form-check-label">Pubblico</label>
                 </div>
               </div>
               <div className="col-2">
                 <div className="mb-3 form-check">
                   <input type="checkbox" className="form-check-input" />
-                  <label className="form-check-label" for="exampleCheck1">Check me out</label>
+                  <label className="form-check-label">Bozza</label>
                 </div>
               </div>
             </div>
