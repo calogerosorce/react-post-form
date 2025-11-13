@@ -13,7 +13,7 @@ export default function Main({ formData, handleSubmit, handleFormdData }) {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Body</label>
-                    <input type="text" name='body' className="form-control" value={formData.body} onChange={handleFormdData} />
+                    <textarea type="text" name='body' className="form-control" value={formData.body} onChange={handleFormdData} rows='3' />
                 </div>
                 <div className="row d-flex justify-content-center">
                     <div className="col-2">
