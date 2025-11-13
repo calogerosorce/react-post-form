@@ -1,13 +1,19 @@
+import axios from "axios";
 import { useState } from "react"
 
 
 function App() {
   const api = 'https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts'
-  const [formData, setFormData] = useState({
+  const copyFormData = {
     author: '',
     title: '',
     body: '',
     check: 'pubblico'
+  }
+  const [formData, setFormData] = useState(copyFormData)
+  const [message, setMessage] = useState({
+    text: null,
+    type: ''
   })
   function handleFormdData(e) {
     const value =
@@ -21,13 +27,29 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
+
+    axios.post(api, formData, {
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => {
+      console.log(res);
+      if (res.status === 201) {
+        setMessage({ text: 'Hai inviato i dati con successo', type: 'success' })
+      }
+      setFormData(copyFormData)
+    }).catch(err => {
+      setMessage({ text: err.message, type: 'danger' })
+    })
+
   }
+
+
 
   return (
     <>
       <div className="container">
         <header>
           <h1>INVIA I TUOI DATI</h1>
+          {message.text && <p className={`text-${message.type}`}>{message.text}</p>}
         </header>
         <main>
           <form onSubmit={handleSubmit}>
@@ -61,7 +83,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Invia dati</button>
           </form>
         </main>
       </div>
