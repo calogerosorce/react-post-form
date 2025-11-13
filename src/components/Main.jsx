@@ -18,7 +18,7 @@ export default function Main({ formData, handleSubmit, handleFormdData }) {
                 <div className="row d-flex justify-content-center">
                     <div className="col-2">
                         <div className="form-check">
-                            <input className="form-check-input" type="radio" name="public" value={true} checked={formData.name} onChange={handleFormdData} />
+                            <input className="form-check-input" type="checkbox" name="public" value={true} checked={formData.name} onChange={handleFormdData} />
                             <label className="form-check-label">
                                 Pubblico
                             </label>
@@ -26,7 +26,7 @@ export default function Main({ formData, handleSubmit, handleFormdData }) {
                     </div>
                     <div className="col-2">
                         <div className="form-check">
-                            <input className="form-check-input" type="radio" name="public" value={false} checked={formData.name} onChange={handleFormdData} />
+                            <input className="form-check-input" type="checkbox" name="public" value={false} checked={formData.name} onChange={handleFormdData} />
                             <label className="form-check-label">
                                 Bozza
                             </label>
